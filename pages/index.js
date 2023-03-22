@@ -44,7 +44,7 @@ export default function Home() {
     )
   }
 
-  const account = '0x...222222'
+  const account = '0x...222222xxxx'
   return (
     <>
       <div className='flex flex-col w-screen h-screen'>
