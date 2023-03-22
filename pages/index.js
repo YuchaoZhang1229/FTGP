@@ -25,7 +25,7 @@ export default function Home() {
         setHasMetamask(true);
         console.log(active);
         const accounts = await ethereum.request({ method: "eth_accounts" });
-        document.getElementById("accountLabel").innerHTML = accounts;
+        document.getElementById("accountLabel").innerHTML = 'Account: ' + accounts;
         console.log(accounts); // 打印当前账户
       } catch (e) {
         console.log(e);
@@ -36,24 +36,28 @@ export default function Home() {
   if (!active) {
     return (
       hasMetamask ?
-        <div className='flex flex-col justify-center items-center  w-screen h-screen  bg-gradient-to-r from-cyan-500 to-purple-300 space-y-8'>
+        (<div className='flex flex-col justify-center items-center  w-screen h-screen  bg-gradient-to-r from-cyan-500 to-purple-300 space-y-8'>
           <div className='text-6xl font-bold text-white'>Dashboard</div>
           <button className='btn bg-purple-500 text-sm' onClick={() => connect()}>Please Connect MetaMask</button>
-        </div>
-        : "Please install MetaMask"
+        </div>)
+        : (<div className='flex flex-col justify-center items-center  w-screen h-screen  bg-gradient-to-r from-cyan-500 to-purple-300 space-y-8'>
+          <div className='text-6xl font-bold text-white'>Please Install Metamask </div>
+        </div>)
     )
   }
 
-  const account = '0x...222222xxxx'
+
+
+
   return (
     <>
       <div className='flex flex-col w-screen h-screen'>
-        <Header account={account} />
+        <Header />
         <div className='flex-1 px-44 py-20 bg-purple-200'>
           <Tabs size='lg' colorScheme='purple' align='center' variant='enclosed'>
             <TabList>
               <Tab fontWeight='bold'>Profile</Tab>
-              <Tab fontWeight='bold'>Balace</Tab>
+              <Tab fontWeight='bold'>Balance</Tab>
               <Tab fontWeight='bold'>Transactions</Tab>
               <Tab fontWeight='bold'>NFT</Tab>
               <Tab fontWeight='bold'>Send ETH</Tab>
