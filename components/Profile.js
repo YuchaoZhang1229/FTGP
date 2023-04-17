@@ -75,9 +75,29 @@ export default function Profile() {
             alert("Please Connect Metamask")
         }
     }
- 
+    
+    async function withdrawToWallet() {
+        console.log(active)
+        if (active) {
+            const signer = provider.getSigner();
+            const contractAddress = "0x244274e5411faE385fF3655DC61D948b13FfC807";
+            const contract = new ethers.Contract(contractAddress, abi, signer);
 
-    async function depositLink() {
+            try{
+
+                await contract.withdrawLINK();
+
+
+            } catch(e) {
+                console.log(e);
+            }
+        } else {
+            alert("Please Connect Metamask")
+        }
+
+    }
+
+    async function depositTothisContract() {
         console.log(active)
         if (active) {
             const signer = provider.getSigner();
@@ -124,8 +144,8 @@ export default function Profile() {
 
 
 
-
-                <button className="btn" onClick={()=>depositLink()}>Deposit to this contract</button>
+                <button className="btn" onClick={()=>withdrawToWallet()}>Withdraw Link Token to My Wallet</button>
+                <button className="btn" onClick={()=>depositTothisContract()}>Deposit to this contract</button>
             </div>
 
         </CustomContainer>

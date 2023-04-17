@@ -67,8 +67,8 @@ export default function Home() {
 
         <Tabs className='m-20' size='lg' colorScheme='purple' align='center' variant='enclosed'>
           <TabList>
-            <Tab fontWeight='bold'>Profile</Tab>
-            <Tab fontWeight='bold'>Balance</Tab>
+            <Tab fontWeight='bold'>Link</Tab>
+            <Tab fontWeight='bold'>USDC</Tab>
             <Tab fontWeight='bold'>FlashLoan</Tab>
           </TabList>
           <TabPanels>
